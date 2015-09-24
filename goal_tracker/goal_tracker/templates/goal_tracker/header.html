@@ -1,0 +1,27 @@
+<link href='http://fonts.googleapis.com/css?family=Lato' rel='stylesheet' type='text/css'>
+{% load staticfiles %}
+<link rel="stylesheet" type="text/css" href="{% static 'goal_tracker/css/goalstracking.css' %}" />
+<link rel="stylesheet" type="text/css" href="{% static 'goal_tracker/css/bootstrap.css' %}" />
+
+<div>
+    <div class="navbar navbar-fixed-top">
+      <div class="navbar-inner">
+          <a class="brand">&nbsp;Four Goals</a>
+          <div class="nav-collapse">
+            <ul class="nav">
+              <li class="active"><a href="/">Home</a></li>
+              {% if user.id %}
+                <li><a href="/goals/summary/">Summary</a></li>
+                {% if user.is_superuser and user.is_staff %}
+                  <li><a href="/admin/">ADMIN</a></li>
+                {% endif %}
+                <li style="width: 250px;">&nbsp;</li>
+                <li><a>Welcome, {{ user.username }}</a></li>
+                <li><a href="/profile/{{ user.username }}/">Your Profile</a></li>
+                <li><a href="/accounts/logout/">Log Out</a></li>
+              {% endif %}
+            </ul>
+        </div>
+      </div>
+    </div>
+</div> 

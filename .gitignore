@@ -1,0 +1,6 @@
+*.pyc
+__pycache__
+goal-tracker-env
+.DS_Store
+db.sqlite3
+settings.py

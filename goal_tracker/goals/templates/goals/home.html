@@ -1,0 +1,55 @@
+{% include "goal_tracker/header.html" %}
+
+  {% if goalset %}
+
+    <div style="margin: 50px;">
+      GOALSET
+
+    {% if dates %}
+      {% for date in dates %}
+        {% include "goals/goal_date_set.html" %}
+      {% endfor %}
+    {% endif %}
+
+    </div>
+
+  {% else %}
+
+    {% if ready %}
+
+        {% if getstarted %}
+
+          <div class="left twothird">
+            {% include "goals/goal_choose.html" %}
+          </div>
+          <div class="left onethird">
+            {% include "goals/goal_pool.html" %}
+          </div>
+
+        {% else %}
+
+          <div class="left half">
+            {% include "goals/goal_make_list.html" %}
+          </div>
+          <div class="right half">
+            {% include "goals/goal_add_form.html" %}
+          </div>
+          <div class="clear"></div>
+          {% include "goals/goal_pool.html" %}
+
+        {% endif %}
+
+    {% else %}
+
+      <div class="left half">
+        {% include "goals/goal_make_list.html" %}
+        {% include "goals/goal_pool.html" %}
+      </div>
+      <div class="right half">
+        {% include "goals/goal_add_form.html" %}
+      </div>
+      <div class="clear"></div>
+
+    {% endif %}
+
+  {% endif %}
